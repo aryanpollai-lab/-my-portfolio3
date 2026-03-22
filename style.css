@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 10px 10%;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
@@ -233,4 +233,47 @@ nav ul li a::after {
 
 nav ul li a:hover::after {
     width: 100%;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.contact-left {
+    flex-basis: 35%; /* Text takes 35% width */
+}
+
+.contact-right {
+    flex-basis: 60%; /* Form takes 60% width */
+}
+
+/* Make the input boxes look modern */
+form input, form textarea {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626; /* Dark grey */
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}.btn {
+    display: inline-block;
+    background: #ff004f;
+    color: #fff;
+    padding: 14px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #d40042;
+    transform: scale(1.05); /* Slightly grows when you touch it */
 }
