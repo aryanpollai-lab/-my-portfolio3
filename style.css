@@ -117,6 +117,10 @@ nav {
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
 }
+.services-list div:hover {
+    background: #ff004f;
+    transform: translateY(-10px);
+}
 .services-list div i {
     font-size: 50px;
     margin-bottom: 30px;
