@@ -296,7 +296,43 @@ form input, form textarea {
     color: #fff;
     transition: background 0.5s;
 }
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-.btn:hover {
-    background: #d40042;
+.about-col-1 {
+    flex-basis: 35%;
+}
+
+.about-col-1 img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.about-col-2 {
+    flex-basis: 60%;
+}
+.contact-right form {
+    width: 100%;
+}
+
+form input, form textarea {
+    width: 100%; /* This stretches the boxes to be wide */
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.btn.btn2 {
+    display: inline-block;
+    background: #ff004f;
+    width: fit-content; /* Only as wide as the text */
+    padding: 14px 60px;
 }
