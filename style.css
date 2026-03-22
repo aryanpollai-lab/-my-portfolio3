@@ -207,3 +207,9 @@ form input, form textarea {
     font-weight: 300;
     margin-top: 20px;
 }
+.about-col-1 img {
+    width: 100%;       /* Makes the image fill the column width */
+    border-radius: 15px; /* Rounds the corners for a modern look */
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Adds a subtle shadow */
+}
