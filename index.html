@@ -141,28 +141,36 @@
         document.getElementById(tabname).classList.add("active-tab");
     }
 <script>
-    // After you deploy to Render, you will replace 'localhost' with your Render URL
-    const scriptURL = 'https://your-project-name.onrender.com/contact'
-    const form = document.forms['submit-to-google-sheet']
+  // This points to your local Node.js server
+  const scriptURL = 'http://localhost:5000/contact'
+  const form = document.forms['submit-to-google-sheet']
 
-    form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { 
-            method: 'POST', 
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: form.Name.value,
-                email: form.Email.value,
-                message: form.Message.value
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success!', data);
-            alert("Sent to Node.js Backend!");
-        })
-        .catch(error => console.error('Error!', error.message))
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    
+    // Create the data object to send
+    const formData = {
+      name: form.Name.value,
+      email: form.Email.value,
+      message: form.Message.value
+    };
+
+    fetch(scriptURL, { 
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData) 
     })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success!', data);
+      alert("Success! Message received by Node.js Backend.");
+      form.reset();
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert("Backend Error: Make sure your server is running!");
+    });
+  })
 </script>
 </body>
 </html>
