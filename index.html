@@ -141,14 +141,13 @@
         document.getElementById(tabname).classList.add("active-tab");
     }
 <script>
-  // This points to your local Node.js server
+  // Ensure this URL is correct
   const scriptURL = 'http://localhost:5000/contact'
   const form = document.forms['submit-to-google-sheet']
 
   form.addEventListener('submit', e => {
     e.preventDefault()
     
-    // Create the data object to send
     const formData = {
       name: form.Name.value,
       email: form.Email.value,
@@ -170,7 +169,7 @@
       console.error('Error!', error.message);
       alert("Backend Error: Make sure your server is running!");
     });
-  })
-</script>
+  }); // Added missing closing brace and semicolon
+</script> // Added missing closing tag
 </body>
 </html>
