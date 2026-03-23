@@ -140,24 +140,29 @@
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
     }
-</script>
 <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzUaBf0UZ-55QreeBnUKMbttKwAxSQbRQXN6PbmrRVkenAWhEjcNNtooz3TWTXeGGwRpg/exec'
-  const form = document.forms['submit-to-google-sheet']
-  const msg = document.getElementById("msg")
+    // After you deploy to Render, you will replace 'localhost' with your Render URL
+    const scriptURL = 'https://your-project-name.onrender.com/contact'
+    const form = document.forms['submit-to-google-sheet']
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {
-          msg.innerHTML = "Message sent successfully!"
-          setTimeout(function(){
-              msg.innerHTML = ""
-          }, 5000)
-          form.reset()
-      })
-      .catch(error => console.error('Error!', error.message))
-  })
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: form.Name.value,
+                email: form.Email.value,
+                message: form.Message.value
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success!', data);
+            alert("Sent to Node.js Backend!");
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
 </script>
 </body>
 </html>
